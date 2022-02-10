@@ -5,9 +5,10 @@
 replicaCount: 1
 
 image:
+  # -- docker repository without database postfix
   repository: supertokens/supertokens
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: "3.9"
 
 imagePullSecrets: []
@@ -16,25 +17,33 @@ fullnameOverride: ""
 
 # Specifies the database settings
 database:
-  type: postgresql # 'postgresql' or 'mysql'
+  # -- database type ('postgresql' or 'mysql')
+  type: postgresql
+  # -- database name
   name: supertokens
+  # -- database port
   port: 5432
+  # -- database host address
   host: postgres
+  # -- database username
   user: supertokens
   # TODO: Move this into a secret
+  # -- database user password
   password: supersecretpassword
 
 apiKeys:
+  # -- enable the use of API Keys with supertokens-core
   enabled: false
+  # -- list of API Keys to load and use with supertokens-core
   keys: []
 
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
@@ -51,10 +60,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
-  type: ClusterIP
-  port: 3567
-
+# -- limit and requests for resources for supertokens-core container
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -68,17 +74,21 @@ resources: {}
   #   memory: 128Mi
 
 autoscaling:
+  # -- enable autoscaling of replicas
   enabled: false
+  # -- minimal replica count when autoscaling
   minReplicas: 1
+  # -- maximum replica count when autoscaling
   maxReplicas: 100
+  # -- target CPU usage before autoscaling
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+# nodeSelector: {}
 
-tolerations: []
+# tolerations: []
 
-affinity: {}
+# affinity: {}
   # podAntiAffinity:
   #   preferredDuringSchedulingIgnoredDuringExecution:
   #     - weight: 1

@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "supertokens.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 3567
       targetPort: 3567
       protocol: TCP
       name: http
