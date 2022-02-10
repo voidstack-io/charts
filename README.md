@@ -5,7 +5,6 @@
 ```bash
 helm repo add voidstack https://voidstack-io.github.io/charts
 helm install my-release voidstack/<chart name>
-
 ```
 
 ## Available Charts
