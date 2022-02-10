@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  supertokens:
+  - apiVersion: v2
+    appVersion: 3.9.0
+    created: "2022-02-10T04:15:16.897511738Z"
+    description: SuperTokens Core Deployment
+    digest: cfe8e662d9751647bdcfc7a56bdc8615fb85b123935aef9aba6151bd330b0924
+    name: supertokens
+    type: application
+    urls:
+    - https://github.com/voidstack-io/charts/releases/download/supertokens-0.1.0/supertokens-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-02-10T04:15:16.897881566Z"
